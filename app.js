@@ -1,40 +1,32 @@
 // Calculator -- Initialize variables
 
-const add = (array) => {
-    return array.length
-    ? array.reduce((acc, nextItem) => acc + nextItem)
-    : 0;
+const add = (a, b) => {
+    return a + b;
 }
 
-const subtract = (array) => {
-    return array.length
-    ? array.reduce((acc, nextItem) => acc - nextItem)
-    : 0;
+const subtract = (a, b) => {
+    return a - b;
 }
 
-const multiply = (array) => {
-    return array.length
-    ? array.reduce((acc, nextItem) => acc * nextItem)
-    : 0;
+const multiply = (a, b) => {
+    return a * b;
 }
 
-const divide = (array) => {
-    return array.length
-    ? array.reduce((acc, nextItem) => acc / nextItem)
-    : 0;
+const divide = (a, b) => {
+    return a / b;
 }
 
-function operate(in1, in2, operator) {
-    switch(operator) {
-        case "+":
-            return add(in1, in2);
-        case "-":
-            return subtract(in1, in2);
-        case "*":
-            return multiply(in1, in2);
-        case "/":
-            return divide(in1, in2);
-        default:
-            return "Invalid operator";
+let result = function operate(a, b, operator) {
+        switch(operator) {
+            case "+":
+                return add(a, b);
+            case "-":
+                return subtract(a, b);
+            case "*":
+                return multiply(a, b);
+            case "/":
+                return divide(a, b);
+            default:
+                return "Invalid operator";
+        }
     }
-}

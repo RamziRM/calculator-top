@@ -1,0 +1,81 @@
+:root {
+    --background: #012e19de;
+    --bg-calc: rgb(183, 134, 0);
+    --font: #222;
+    --btn: aliceblue;
+    --border: #333;
+
+}
+
+
+body {
+    background-color: var(--background);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--font);
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/*  Main parts */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.calc {
+    background-color: var(--bg-calc);
+    width: 400px;
+    border: 2px var(--border) solid;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+.display-cont {
+    padding: 10px 20px;
+    border: 2px var(--border) solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: var(--btn);
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.display {
+    min-height: 64px;
+    font-size: 40px;
+}
+
+.btn-cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* creates a grid with 4 columns and each column takes 1 fraction of the available space */
+    grid-gap: 10px; /* adds some gap between the elements */
+    
+}
+
+.div-2 {
+    grid-column: span 2;
+}
+
+.btns {
+    padding: 20px;
+    border: 2px var(--border) solid;
+    border-radius: 5px;
+    background-color: var(--btn);
+    font-size: 20px;
+}
