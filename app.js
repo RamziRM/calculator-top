@@ -6,13 +6,14 @@ const dotBtn = document.getElementById('dotBtn');
 const clearBtn = document.getElementById('clearBtn');
 const deleteBtn = document.getElementById('deleteBtn');
 
-const currentOpDisplay = document.getElementById('currentOpDisplay')
+const currentOpDisplay = document.getElementById('currentOpDisplay');
+const lastOpDisplay = document.getElementById('lastOpDisplay');
 
-let currentOp = null
-let firstOp = ''
-let secondOp = ''
+let currentOp = null;
+let firstOp = '';
+let secondOp = '';
 // review following var
-let shouldResetScreen = false
+let shouldResetScreen = false;
 
 // btns add evenListners for click
 numberBtns.forEach((button) => button.addEventListener('click', () => appendNumber(button.textContent)));
@@ -20,8 +21,8 @@ opBtns.forEach((button) => button.addEventListener('click', () => setOp(button.t
 
 equalsBtn.addEventListener('click', evaluate);
 clearBtn.addEventListener('click', clear);
-deleteBtn.addEventListener('click', deleteNumber)
-dotBtn.addEventListener('click', appendPoint)
+deleteBtn.addEventListener('click', deleteNumber);
+dotBtn.addEventListener('click', appendPoint);
 
 
 // appendNumber f() : Combine
@@ -37,10 +38,11 @@ function resetScreen() {
 }
 
 function clear() {
-    currentOpDisplay.textContent = '0'
-    firstOp = ''
-    secondOp = ''
-    currentOp = null
+    currentOpDisplay.textContent = '';
+    lastOpDisplay.textContent = '';
+    firstOp = '';
+    secondOp = '';
+    currentOp = null;
 }
 
 function deleteNumber() {
@@ -54,6 +56,7 @@ function setOp(operator) {
     if (currentOp !== null) evaluate()
     firstOp = currentOpDisplay.textContent;
     currentOp = operator;
+    lastOpDisplay.textContent = `${firstOp} ${currentOp}`
     shouldResetScreen = true;
 }
 
@@ -63,6 +66,7 @@ function evaluate() {
     secondOp = currentOpDisplay.textContent
     currentOpDisplay.textContent = roundResult(
     operate(currentOp, firstOp, secondOp))
+    lastOpDisplay.textContent = `${firstOp} ${currentOp} ${secondOp} =`
     currentOp = null
 }
 
@@ -96,7 +100,7 @@ const divide = (a, b) => {
     return a / b;
 }
 
-function operate(a, b, operator) {
+function operate(operator, a, b) {
     a = Number(a)
     b = Number(b)
         switch(operator) {
@@ -110,6 +114,6 @@ function operate(a, b, operator) {
                 if (b === 0) return null
                 else return divide(a, b);
             default:
-                return "Invalid operator";
+                return null;
         }
     }

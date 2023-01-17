@@ -54,11 +54,8 @@ button {
     text-align: right;
     word-wrap: break-word;
     word-break: break-all;
-}
-
-.display {
-    min-height: 64px;
-    font-size: 40px;
+    min-height: 100px;
+    font-size: 30px;
 }
 
 .btn-cont {
